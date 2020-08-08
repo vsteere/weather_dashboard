@@ -62,34 +62,60 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
 
-                console.log("hi we are here");
+            console.log("hi we are here");
 
-                console.log(response.cod);
-                //checking if the data pulls. This works
-                console.log(response);
+            console.log(response.cod);
+            //checking if the data pulls. This works
+            console.log(response);
 
-                //pull the specific object from the data to the dashboard
+            //pull the specific object from the data to the dashboard
+
+            console.log(response.weather[0].icon)
+            var cityName = response.name;
+            var cityNamedisp = $("<h2>");
+            //image not working need to fix later
+            var currentImage = $("<img>");
+            currentImage.attr("src", "http://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png")
+            console.log(moment().format("lll"));
+            //this will keep only one city's data in teh box
+            currentWeather.empty();
+            //learned from a tutor the syntax for the below; city name and current date
+            cityNamedisp.text(`${cityName}  ${moment().format("ll")} ${currentImage} `);
+            currentWeather.append(cityNamedisp);
+
+            //pulling the data for temp and converting it to Fahrenheit. NEED TO FIX THE ROUNDING
+            var currTemp = response.main.temp;
+            var currTempfarh = (response.main.temp - 273.15) * 1.80 + 32;
+            var tempP = $("<p>");
+            tempP.text(`Temperature:  ${currTempfarh} degrees Fahrenheit`)
+            currentWeather.append(tempP);
 
 
-                    var cityName = response.name;
-                    var cityNamedisp = $("<h2>");
-                    var currentImage = $(`<img src="' +) 
-                    console.log(moment().format("lll"));
-                    currentWeather.empty();
-                    cityNamedisp.text(`${cityName}  ${moment().format("ll")} `);
-                    
-                    currentWeather.append(cityNamedisp);
-
-                    console.log(cityName);
 
 
+            //pulling the data for humidity and appending it to current weather block
+            var currHumid = response.main.humidity;
+            var humidP = $("<p>");
+            humidP.text(`Humidity:  ${currHumid}%`)
+            currentWeather.append(humidP);
+
+
+            //pulling the data for wind speed and pulling it for current weather block
+            var currWind = response.wind.speed
+            var windP = $("<p>");
+            windP.text(`Wind Speed ${currWind} MPH`);
+            currentWeather.append(windP);
 
 
 
 
-            });
 
-        
+
+
+
+        });
+
+
     }
 
     getWeather();
