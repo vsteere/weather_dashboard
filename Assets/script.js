@@ -77,7 +77,7 @@ $(document).ready(function () {
             var currentImage = $("<img>");
             currentImage.attr("src", "http://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png")
             console.log(moment().format("lll"));
-            //this will keep only one city's data in teh box
+            //this will keep only one city's data in thh box
             currentWeather.empty();
             //learned from a tutor the syntax for the below; city name and current date
             cityNamedisp.text(`${cityName}  ${moment().format("ll")} ${currentImage} `);
@@ -89,9 +89,6 @@ $(document).ready(function () {
             var tempP = $("<p>");
             tempP.text(`Temperature:  ${currTempfarh} degrees Fahrenheit`)
             currentWeather.append(tempP);
-
-
-
 
             //pulling the data for humidity and appending it to current weather block
             var currHumid = response.main.humidity;
@@ -107,13 +104,46 @@ $(document).ready(function () {
             currentWeather.append(windP);
 
 
+            //code to pull the UV index
+
+            var latCoord = response.coord.lat;
+            var longCoord = response.coord.lon;
+
+            var uvPull = "http://api.openweathermap.org/data/2.5/uvi?lat=" + latcoord + "&lon=" + longCoord;
 
 
 
+            $.ajax({
 
+                url: uvPUll,
+                method: "GET"
+
+            }).then(function (response) {
+
+                console.log(response);
+
+            });
 
 
         });
+
+
+
+    }
+
+    function pastWeather () {
+        //this pulls the city name of whatever button we click on
+        var thisCity = $(this).attr("data-city");
+        var pastWeather = "http://api.openweathermap.org/data/2.5/forecast?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
+
+        
+
+
+
+
+
+
+
 
 
     }
