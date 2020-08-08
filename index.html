@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Assets/style.css">
+   <!--link to image library to get the magnifying glass for the search box-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+
+</head>
+<body>
+
+    <div class="jumbotron jumbotron-fluid" id="nav">
+        <div class="container">
+          <h1 class="display-4">Weather Dashboard</h1>
+          
+        </div>
+      </div>
+<div class="container">
+ <div class="row">  
+     <div class="col 4">
+
+      <!--form with the search box-->
+<form id="city-search">
+<label for="enterCity">Search for a City:</label><br>
+<input type="text" id="enterCity">
+<button type="submit" id="searchNow"><i class="fa fa-search"></i></button>
+
+</form><br>
+
+
+
+<!-- this is the div where the buttons with the previous searches will be generated-->
+<div id="prevSearches"></div>
+</div>
+
+
+<div class="row">
+    <div class="col 8" id="currentWeather">
+        
+    </div>
+
+
+
+
+
+</div>
+
+</div>   
+
+
+
+
+
+<!--AJAX link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--link to JS logic file-->
+<script src="./Assets/script.js"></script>
+<!--this is to run the momement.js code to show the current date in the box-->
+<script src="https://momentjs.com/downloads/moment.js"></script>
+
+
+
+
+
+    
+
+</div>
+</body>
+</html>

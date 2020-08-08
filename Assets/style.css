@@ -1,0 +1,29 @@
+.display-4 {
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 64px;
+}
+
+#nav {
+
+    background-color: black;
+
+}   
+
+#searchNow {
+    background-color: #0066ff;
+}
+
+
+
+.city-btn {
+
+    display: block;
+    border: 1px solid grey; 
+    background-color: white;
+    color: black;
+    width: 25%;
+    text-align: left;
+    cursor: pointer;
+}
