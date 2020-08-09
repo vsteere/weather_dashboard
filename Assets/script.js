@@ -138,12 +138,23 @@ $(document).ready(function () {
                 currentWeather.append(curUVindexp);
             })
 
-
+            //closing brackets for first ajax
         })
+                    var multiDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
+                    
+                    $.ajax({
+                        url: multiDay,
+                        method: "GET"
+                    }).then(function (response) {
+                        
+                        //checks the response of the multi day forecast API call. This works. 
+                        console.log(response)
 
 
 
+                    })
 
+//closing bracket for the function
     }
 
 
