@@ -52,7 +52,9 @@ $(document).ready(function () {
     }
 
     function getWeather() {
-
+        
+       
+        
         //this pulls the city name of whatever button we click on
         var thisCity = $(this).attr("data-city");
         //data pull via api
@@ -84,7 +86,7 @@ $(document).ready(function () {
 
             //pulling the data for temp, converting it from Kelvin Fahrenheit, and rounding to 2 decimal points
             var currTemp = response.main.temp;
-            var currTempfarh = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(2);
+            var currTempfarh = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(1);
             var tempP = $("<p>");
             tempP.text(`Temperature:  ${currTempfarh} degrees Fahrenheit`)
             currentWeather.append(tempP);
@@ -146,10 +148,7 @@ $(document).ready(function () {
 
 
 
-    function pastWeather() {
-        //this pulls the city name of whatever button we click on
-        var thisCity = $(this).attr("data-city");
-        var pastWeather = "http://api.openweathermap.org/data/2.5/forecast?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
+    
 
 
 
@@ -160,7 +159,7 @@ $(document).ready(function () {
 
 
 
-    }
+    
 
     getWeather();
     //on click event handler when the city btn class button is clicked it runs the getWeather function for that city

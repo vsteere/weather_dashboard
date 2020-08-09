@@ -23,7 +23,14 @@
     border: 1px solid grey; 
     background-color: white;
     color: black;
-    width: 25%;
+    width: 75%;
     text-align: left;
     cursor: pointer;
 }
+
+/* #currentWeather  {
+    border: 1px solid black; */
+    
+
+
+/* } */
