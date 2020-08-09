@@ -52,8 +52,8 @@ $(document).ready(function () {
     }
 
     function getWeather() {
-        
-       
+        //adds a border to the current weather div
+       $(currentWeather).css("border", "1px solid black");
         
         //this pulls the city name of whatever button we click on
         var thisCity = $(this).attr("data-city");
@@ -158,21 +158,9 @@ $(document).ready(function () {
     }
 
 
+ 
 
     
-
-
-
-
-
-
-
-
-
-
-    
-
-    getWeather();
     //on click event handler when the city btn class button is clicked it runs the getWeather function for that city
     $(document).on("click", ".city-btn", getWeather);
 
