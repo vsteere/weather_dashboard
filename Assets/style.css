@@ -28,6 +28,15 @@
     cursor: pointer;
 }
 
-.card {
+.weatherbox {
+    background-color: #00BFFF;
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1px;
+    color: white;
+}
 
-    )
+h5 {
+    text-align: center;
+}
