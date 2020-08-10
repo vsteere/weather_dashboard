@@ -28,9 +28,9 @@
     cursor: pointer;
 }
 
-/* #currentWeather  {
-    border: 1px solid black; */
+.card {
+
+    height: 300px;
+    width: 175px;
     
-
-
-/* } */
+}

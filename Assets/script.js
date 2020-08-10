@@ -2,7 +2,9 @@
 
 $(document).ready(function () {
 
+    //these are the two divs where the weather data will be appended to
     var currentWeather = $("#currentWeather");
+    var multidayWeather = $("#multiDayweather");
 
     //array of initial cities that will be pulled into buttons when the page first loads
     var initialCities = ["Austin", "Chicago", "New York", "Orlando", "San Francisco", "Seattle", "Denver", "Atlanta"];
@@ -138,7 +140,7 @@ $(document).ready(function () {
                 currentWeather.append(curUVindexp);
             })
 
-            //closing brackets for first ajax
+            
         })
                     var multiDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
                     
@@ -146,9 +148,27 @@ $(document).ready(function () {
                         url: multiDay,
                         method: "GET"
                     }).then(function (response) {
+
+                        
                         
                         //checks the response of the multi day forecast API call. This works. 
                         console.log(response)
+                        
+                        // for (var i = 0; i < response.list.length; i++){
+
+                        //     if (response.list[i].dt_txt.includes("00:00:00")) {
+                        //         var day = $("<div>")
+                        //         multidayWeather.append(day);
+                        //         var multiImage = response.list[i].weather[0].icon;
+                        //         var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+                        //         var multiImageaddy = $("<img>").attr("src", multiImagedisp);
+
+
+
+                        //     }
+
+                        //     console.log
+                        // }
 
 
 
