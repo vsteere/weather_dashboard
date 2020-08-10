@@ -4,4 +4,12 @@ This project uses APIs to pull data into a weather dashboard showing both the cu
 
 Deployed Application URL: https://vsteere.github.io/weather_dashboard/
 
-<img src="/Assets/weather_dashboard.png" alt="weather dashboard snapshot"/>
+<img src="./Assets/weather_dashboard.png" alt="weather dashboard snapshot"/>
+
+
+## Materials Used During Design
+- W3C Schools
+- MDN
+- Trilogy tutor
+- Stack Overflow
+
