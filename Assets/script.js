@@ -279,10 +279,18 @@ $(document).ready(function () {
             hum5P.text(`Humidity:  ${day5Hum} %`)
             day5.append(hum5P);
 
+            //pushing any new cities searched for into an array and adding the array to local storage
+            $(".city-btn").click(function() {
+                initialCities.push($(this).val());
+                localStorage.setItem("cities", JSON.stringify(initialCities));
 
+         
+            
+            
+            
+        })
 
-
-
+        console.log(initialCities)
 
 
         })
