@@ -1,6 +1,8 @@
 //jQuery code to make it run only after everything loads
 
 $(document).ready(function () {
+    //this hides the divs for the 5 day forecast
+    $(".card").hide();
 
     //these are the two divs where the weather data will be appended to
     var currentWeather = $("#currentWeather");
@@ -55,8 +57,8 @@ $(document).ready(function () {
 
     function getWeather() {
         //adds a border to the current weather div
-       $(currentWeather).css("border", "1px solid black");
-        
+        $(currentWeather).css("border", "1px solid black");
+
         //this pulls the city name of whatever button we click on
         var thisCity = $(this).attr("data-city");
         //data pull via api
@@ -140,47 +142,100 @@ $(document).ready(function () {
                 currentWeather.append(curUVindexp);
             })
 
-            
+
         })
-                    var multiDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
-                    
-                    $.ajax({
-                        url: multiDay,
-                        method: "GET"
-                    }).then(function (response) {
+        var multiDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
 
-                        
-                        
-                        //checks the response of the multi day forecast API call. This works. 
-                        console.log(response)
-                        
-                        // for (var i = 0; i < response.list.length; i++){
-
-                        //     if (response.list[i].dt_txt.includes("00:00:00")) {
-                        //         var day = $("<div>")
-                        //         multidayWeather.append(day);
-                        //         var multiImage = response.list[i].weather[0].icon;
-                        //         var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
-                        //         var multiImageaddy = $("<img>").attr("src", multiImagedisp);
+        $.ajax({
+            url: multiDay,
+            method: "GET"
+        }).then(function (response) {
 
 
 
-                        //     }
-
-                        //     console.log
-                        // }
+            //checks the response of the multi day forecast API call. This works. 
+            console.log(response)
 
 
+            //pulling the data for the 5 days using the indexes corresponding to midnight of each day
+            //day 1
+            //shows the divs that were hidden upon load
+            $("#day1").show();
+            var timeDate1 = response.list[0].dt_txt;
+            //substring method pulling only the first 10 characters, which are the date
+            var date1 = timeDate1.substring(0, 10);
+            var header1 = $("<h5>");
+            header1.text(date1);
+            $("#day1").append(header1);
+            //pulling image associated with the day
+            var multiImage = response.list[0].weather[0].icon;
+            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImageaddy = $("<img>").attr("src", multiImagedisp);
+            $("#day1").append(multiImageaddy);
 
-                    })
+            //day 2
+            $("#day2").show();
+            var timeDate2 = response.list[7].dt_txt;
+            var date2 = timeDate2.substring(0, 10);
+            var header2 = $("<h5>");
+            header2.text(date2);
+            $("#day2").append(header2);
+            var multiImage = response.list[7].weather[0].icon;
+            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImageaddy = $("<img>").attr("src", multiImagedisp);
+            $("#day2").append(multiImageaddy);
 
-//closing bracket for the function
+            //day 3
+            $("#day3").show();
+            var timeDate3 = response.list[15].dt_txt;
+            var date3 = timeDate3.substring(0, 10);
+            var header3 = $("<h5>");
+            header3.text(date3);
+            $("#day3").append(header3);
+            var multiImage = response.list[15].weather[0].icon;
+            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImageaddy = $("<img>").attr("src", multiImagedisp);
+            $("#day3").append(multiImageaddy);
+
+            //day 4
+            $("#day4").show();
+            var timeDate4 = response.list[23].dt_txt;
+            var date4 = timeDate3.substring(0, 10);
+            var header4 = $("<h5>");
+            header4.text(date4);
+            $("#day4").append(header4);
+            var multiImage = response.list[23].weather[0].icon;
+            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImageaddy = $("<img>").attr("src", multiImagedisp);
+            $("#day4").append(multiImageaddy);
+
+            //day 5
+            $("#day5").show();
+            var timeDate5 = response.list[31].dt_txt;
+            var date5 = timeDate5.substring(0, 10);
+            var header5 = $("<h5>");
+            header5.text(date5);
+            $("#day5").append(header5);
+            var multiImage = response.list[31].weather[0].icon;
+            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImageaddy = $("<img>").attr("src", multiImagedisp);
+            $("#day5").append(multiImageaddy);
+
+
+
+
+
+
+
+        })
+
+        //closing bracket for the function
     }
 
 
- 
 
-    
+
+
     //on click event handler when the city btn class button is clicked it runs the getWeather function for that city
     $(document).on("click", ".city-btn", getWeather);
 
