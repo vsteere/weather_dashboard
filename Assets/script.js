@@ -75,7 +75,7 @@ $(document).ready(function () {
         //this pulls the city name of whatever button we click on
         var thisCity = $(this).attr("data-city");
         //data pull via api
-        var weatherPull = "http://api.openweathermap.org/data/2.5/weather?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
+        var weatherPull = "https://api.openweathermap.org/data/2.5/weather?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
 
         $.ajax({
             url: weatherPull,
@@ -91,7 +91,7 @@ $(document).ready(function () {
             var cityNamedisp = $("<h2>");
             //Pulling image from data to the page
             var currentImage = response.weather[0].icon;
-            var currentImagedisp = "http://openweathermap.org/img/wn/" + currentImage + ".png";
+            var currentImagedisp = "https://openweathermap.org/img/wn/" + currentImage + ".png";
             var currentImagedispaddy = $("<img>").attr("src", currentImagedisp);
             //this will keep only one city's data in the box
             currentWeather.empty();
@@ -138,7 +138,7 @@ $(document).ready(function () {
             var currCitylong = response.coord.lon;
 
             //defining the API URL for the UV index pull
-            var uvPull = "http://api.openweathermap.org/data/2.5/uvi?appid=5290a147bd4c081007c34f429776aca3&lat=" + currCitylat + "&lon=" + currCitylong;
+            var uvPull = "https://api.openweathermap.org/data/2.5/uvi?appid=5290a147bd4c081007c34f429776aca3&lat=" + currCitylat + "&lon=" + currCitylong;
 
 
             //AJAX call for the UV index using the latitude and longitude from above
@@ -157,7 +157,7 @@ $(document).ready(function () {
 
 
         })
-        var multiDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
+        var multiDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + thisCity + "&appid=5290a147bd4c081007c34f429776aca3";
 
         $.ajax({
             url: multiDay,
@@ -182,7 +182,7 @@ $(document).ready(function () {
             $(day1).append(header1);
             //pulling image associated with the day
             var multiImage = response.list[0].weather[0].icon;
-            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImagedisp = "https://openweathermap.org/img/wn/" + multiImage + ".png";
             var multiImageaddy = $("<img>").attr("src", multiImagedisp);
             $(day1).append(multiImageaddy);
             //pulls the temperature from the array, converts it to Fahrenheit and appends
@@ -204,7 +204,7 @@ $(document).ready(function () {
             header2.text(date2);
             $(day2).append(header2);
             var multiImage = response.list[7].weather[0].icon;
-            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImagedisp = "https://openweathermap.org/img/wn/" + multiImage + ".png";
             var multiImageaddy = $("<img>").attr("src", multiImagedisp);
             $(day2).append(multiImageaddy);
             var day2Temp = ((response.list[7].main.temp - 273.15) * 1.80 + 32).toFixed(1);
@@ -225,7 +225,7 @@ $(document).ready(function () {
             header3.text(date3);
             $(day3).append(header3);
             var multiImage = response.list[15].weather[0].icon;
-            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImagedisp = "https://openweathermap.org/img/wn/" + multiImage + ".png";
             var multiImageaddy = $("<img>").attr("src", multiImagedisp);
             $(day3).append(multiImageaddy);
             var day3Temp = ((response.list[15].main.temp - 273.15) * 1.80 + 32).toFixed(1);
@@ -246,7 +246,7 @@ $(document).ready(function () {
             header4.text(date4);
             $(day4).append(header4);
             var multiImage = response.list[23].weather[0].icon;
-            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImagedisp = "https://openweathermap.org/img/wn/" + multiImage + ".png";
             var multiImageaddy = $("<img>").attr("src", multiImagedisp);
             $(day4).append(multiImageaddy);
             var day4Temp = ((response.list[23].main.temp - 273.15) * 1.80 + 32).toFixed(1);
@@ -266,7 +266,7 @@ $(document).ready(function () {
             header5.text(date5);
             $(day5).append(header5);
             var multiImage = response.list[31].weather[0].icon;
-            var multiImagedisp = "http://openweathermap.org/img/wn/" + multiImage + ".png";
+            var multiImagedisp = "https://openweathermap.org/img/wn/" + multiImage + ".png";
             var multiImageaddy = $("<img>").attr("src", multiImagedisp);
             $(day5).append(multiImageaddy);
             $(day5).append(multiImageaddy);
