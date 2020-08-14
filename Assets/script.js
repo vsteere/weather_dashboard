@@ -25,9 +25,9 @@ $(document).ready(function () {
         
         event.preventDefault();
         var newCity = $("#enterCity").val().trim();
-        if(initialCities.indexOf(newCity) === -1) {initialCities.push(newCity)};
         
-        
+        //local storage 
+        if(initialCities.indexOf(newCity) === -1) {initialCities.push(newCity)};      
         localStorage.setItem("cities", JSON.stringify(initialCities));
         $("#enterCity").val("");
         
@@ -174,6 +174,7 @@ $(document).ready(function () {
             //checks the response of the multi day forecast API call. This works. 
             console.log(response)
 
+            //for loop that will loop through the array and catch the indexes that include 03:00:00 so it only pulls one entry per day
             for(let i=0; i< response.list.length; i++) {
                     if(response.list[i].dt_txt.includes("03:00:00")){ 
                         console.log(response.list[i]);
