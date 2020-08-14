@@ -176,7 +176,9 @@ $(document).ready(function () {
 
             //for loop that will loop through the array and catch the indexes that include 03:00:00 so it only pulls one entry per day
             for(let i=0; i< response.list.length; i++) {
-                    if(response.list[i].dt_txt.includes("03:00:00")){ 
+                    
+                //learned the includes function from tutor
+                if(response.list[i].dt_txt.includes("03:00:00")){ 
                         console.log(response.list[i]);
                             let column = $("<div>");
                             column.addClass("col-md-2 weatherbox p-3");
